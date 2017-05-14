@@ -1,0 +1,25 @@
+{
+    "name": "coloraxis-bands",
+    "version": "1.0.0",
+    "title": "ColorAxis Banding",
+    "author": {
+        "name": "Paulo Costa",
+        "url": "https://github.com/paulo-raca"
+    },
+    "licenses": [
+        {
+            "type": "WTFPL – Do What the Fuck You Want to Public License",
+            "url": "http://www.wtfpl.net/"
+        }
+    ],
+    "dependencies": {
+        "highcharts": "5.0.11",
+    },
+    "description": "Creates Banding effects around ticks on a ColorAxis",
+    "keywords": [
+        "ColorAxis",
+        "ColorBand"
+    ],
+    "demo": [
+    ]
+}
