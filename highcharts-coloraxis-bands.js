@@ -103,8 +103,7 @@ function remapStopRange (stops, oldMin, oldMax, newMin, newMax) {
 		if (stops[0][0] < oldMin) {
 			stops[0] = [
 				oldMin,
-				ColorAxis.prototype.tweenColors(
-					stops[0].color,
+				stops[0].color.tweenTo(
 					stops[1].color,
 					(oldMin - stops[0][0]) / (stops[1][0] - stops[0][0])
 				)
@@ -114,8 +113,7 @@ function remapStopRange (stops, oldMin, oldMax, newMin, newMax) {
 		if (stops[stops.length-1][0] > oldMax) {
 			stops[stops.length-1] = [
 				oldMax,
-				ColorAxis.prototype.tweenColors(
-					stops[stops.length-2].color,
+				stops[stops.length-2].color.tweenTo(
 					stops[stops.length-1].color,
 					(oldMax - stops[stops.length-2][0]) / (stops[stops.length-1][0] - stops[stops.length-2][0])
 				)
