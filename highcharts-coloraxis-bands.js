@@ -86,7 +86,7 @@ function remapStops (stops, ticks, banding) {
 		return remapStopRange(stops, range.oldMin, range.oldMax, range.newMin, range.newMax)
 	}));
 
-	return ret;
+	return simplifyStops(ret);
 };
 
 function remapStopRange (stops, oldMin, oldMax, newMin, newMax) {
@@ -129,6 +129,42 @@ function remapStopRange (stops, oldMin, oldMax, newMin, newMax) {
 		ret.color = stop.color;
 		return ret;
 	});
+}
+
+/**
+ * Remove redundant stops from the gradient
+ */
+function simplifyStops (stops) {
+	var ret = [];
+	for (var i=0; i<stops.length; i++) {
+		var newStop = stops[i];
+
+		if (ret.length >= 1) {
+			// We can remove a stop if it has the same color and value as the previous
+			var oldStop = ret[ret.length-1];
+			if ( (oldStop[0] === newStop[0] && oldStop[1] === newStop[1]) ) {
+ 				// console.log('pop equal', newStop);
+				ret.pop();
+			}
+		}
+
+		if (ret.length >= 2) {
+			var left = ret[ret.length-2],
+				middle = ret[ret.length-1],
+				right = newStop;
+
+			// A stop can be discarded if it is between 2 other stops of the same color, of if it is between 2 other stops at the same position.
+			if ( (middle[0] === left[0] && middle[0] === right[0]) ||
+				 (middle[1] === left[1] && middle[1] === right[1]) ) {
+ 				// console.log('pop middle', left, middle, right);
+				ret.pop();
+			}
+		}
+
+		ret.push(newStop);
+	}
+	// console.log(stops.length, "->", ret.length);
+	return ret;
 }
 
 }(Highcharts));
