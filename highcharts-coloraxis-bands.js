@@ -61,47 +61,47 @@ function remapStops (stops, ticks, banding) {
 	var ret = [];
 
 	for (var i=0; i<=ticks.length; i++) {
-		var min = i === 0 ? 0 : ticks[i-1],
-			max = i === ticks.length ? 1 : ticks[i],
-			bandMin = i == 0 ? min : banding / 2 * (max - min) + min,
-			bandMax = i == ticks.length ? max : banding / 2 * (min - max) + max;
+		var oldMin = i === 0 ? 0 : ticks[i-1],
+			oldMax = i === ticks.length ? 1 : ticks[i],
+			newMin = i == 0 ? oldMin : banding / 2 * (oldMax - oldMin) + oldMin,
+			newMax = i == ticks.length ? oldMax : banding / 2 * (oldMin - oldMax) + oldMax;
 
-		if (min == max) continue;
+		if (oldMin == oldMax) continue;
 
-		ret = ret.concat(remapStopRange(stops, min, max, bandMin, bandMax));
+		ret = ret.concat(remapStopRange(stops, oldMin, oldMax, newMin, newMax));
 	}
 	return ret;
 };
 
-function remapStopRange (stops, min, max, newMin, newMax) {
+function remapStopRange (stops, oldMin, oldMax, newMin, newMax) {
 	stops = stops.slice();
 
-	while (stops.length >= 2 && stops[1][0] <= min) {
+	while (stops.length >= 2 && stops[1][0] <= oldMin) {
 		stops.shift();
 	}
-	while (stops.length >= 2 && stops[stops.length - 2][0] >= max) {
+	while (stops.length >= 2 && stops[stops.length - 2][0] >= oldMax) {
 		stops.pop();
 	}
 
 	if (stops.length > 1) {
-		if (stops[0][0] < min) {
+		if (stops[0][0] < oldMin) {
 			stops[0] = [
-				min,
+				oldMin,
 				ColorAxis.prototype.tweenColors(
 					stops[0].color,
 					stops[1].color,
-					(min - stops[0][0]) / (stops[1][0] - stops[0][0])
+					(oldMin - stops[0][0]) / (stops[1][0] - stops[0][0])
 				)
 			];
 			stops[0].color = color(stops[0][1]);
 		}
-		if (stops[stops.length-1][0] > max) {
+		if (stops[stops.length-1][0] > oldMax) {
 			stops[stops.length-1] = [
-				max,
+				oldMax,
 				ColorAxis.prototype.tweenColors(
 					stops[stops.length-2].color,
 					stops[stops.length-1].color,
-					(max - stops[stops.length-2][0]) / (stops[stops.length-1][0] - stops[stops.length-2][0])
+					(oldMax - stops[stops.length-2][0]) / (stops[stops.length-1][0] - stops[stops.length-2][0])
 				)
 			];
 			stops[stops.length-1].color = color(stops[stops.length-1][1]);
@@ -109,7 +109,7 @@ function remapStopRange (stops, min, max, newMin, newMax) {
 	}
 
 	return stops.map(function (stop) {
-		var rel = (stop[0] - min) / (max - min),
+		var rel = (stop[0] - oldMin) / (oldMax - oldMin),
 			newPos = rel * (newMax - newMin) + newMin;
 		var ret = [ newPos, stop[1] ];
 		ret.color = stop.color;
