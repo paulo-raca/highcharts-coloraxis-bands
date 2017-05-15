@@ -58,18 +58,34 @@ wrap(ColorAxis.prototype, 'initStops', function (proceed) {
 });
 
 function remapStops (stops, ticks, banding) {
-	var ret = [];
+	var ranges = [];
+	for (var i=0; i<ticks.length; i++) {
+		{ // Lower band
+			var oldMin = i === 0 ? 0 : (ticks[i-1] + ticks[i]) / 2,
+				oldMax = ticks[i],
+				newMin = oldMin + banding * (oldMax - oldMin),
+				newMax = oldMax;
 
-	for (var i=0; i<=ticks.length; i++) {
-		var oldMin = i === 0 ? 0 : ticks[i-1],
-			oldMax = i === ticks.length ? 1 : ticks[i],
-			newMin = i == 0 ? oldMin : banding / 2 * (oldMax - oldMin) + oldMin,
-			newMax = i == ticks.length ? oldMax : banding / 2 * (oldMin - oldMax) + oldMax;
+			ranges.push({ oldMin: oldMin, oldMax: oldMax, newMin: newMin, newMax: newMax });
+		}
 
-		if (oldMin == oldMax) continue;
+		{ // Upper band
+			var oldMin = ticks[i],
+				oldMax = i === ticks.length - 1 ? 1 : (ticks[i] + ticks[i+1]) / 2,
+				newMin = oldMin,
+				newMax = oldMax + banding * (oldMin - oldMax);
 
-		ret = ret.concat(remapStopRange(stops, oldMin, oldMax, newMin, newMax));
+			ranges.push({ oldMin: oldMin, oldMax: oldMax, newMin: newMin, newMax: newMax });
+		}
 	}
+
+	var ret = [].concat.apply([], ranges.map( function(range) {
+		if (range.oldMin === range.oldMax) {
+			return [];
+		}
+		return remapStopRange(stops, range.oldMin, range.oldMax, range.newMin, range.newMax)
+	}));
+
 	return ret;
 };
 
