@@ -1,5 +1,5 @@
 /**
-* Highcharts plugin for contour curves
+* Highcharts plugin for ColorAxis bands
 *
 * Author: Paulo Costa
 */
@@ -14,7 +14,7 @@ var ColorAxis = Highcharts.ColorAxis,
 	each = Highcharts.each;
 
 /**
-* Default amount of bandinm. 0=no banding, 1=completely banded
+* Default amount of banding. 0=no banding, 1=completely banded
 */
 ColorAxis.prototype.defaultColorAxisOptions.banding = 0;
 
