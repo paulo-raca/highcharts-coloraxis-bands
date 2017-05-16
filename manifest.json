@@ -13,12 +13,12 @@
 		}
 	],
 	"dependencies": {
-		"highcharts": "5.0.12",
+		"highcharts": "5.0.12"
 	},
 	"description": "Creates Banding effects between ticks on a ColorAxis",
 	"keywords": [
 		"ColorAxis",
-		"Color band",
+		"Color band"
 	],
 	"demo": [
 		"https://jsfiddle.net/xt8zmabc/",
