@@ -13,4 +13,7 @@ The amount of banding can be configured via `banding` property, where:
 
 I've found that 40-60% works nicely on contour curve charts, but YMMV.
 
-Examples: [3D Contour curve](https://jsfiddle.net/xt8zmabc/), [TreeMap](https://jsfiddle.net/c9t8eezj/), [Heatmap](https://jsfiddle.net/t3zwt91b/)
+Examples:
+- [3D Contour curve](https://jsfiddle.net/xt8zmabc/)
+- [TreeMap](https://jsfiddle.net/c9t8eezj/)
+- [Heatmap](https://jsfiddle.net/t3zwt91b/)
