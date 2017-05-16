@@ -16,7 +16,7 @@ var ColorAxis = Highcharts.ColorAxis,
 /**
 * Default amount of banding. 0=no banding, 1=completely banded
 */
-ColorAxis.prototype.defaultColorAxisOptions.banding = 0;
+ColorAxis.prototype.defaultColorAxisOptions.banding = false;
 
 /**
  * Whenever tick positions change, also update the stops
@@ -49,7 +49,10 @@ wrap(ColorAxis.prototype, 'initStops', function (proceed) {
 	var oldStops = (this.stops || []).slice();
 
 	proceed.call(this);
-	var banding = Math.max(0, Math.min(1, this.options.banding));
+	var banding = this.options.banding;
+	if (banding === false) banding = 0;
+	if (banding === true) banding = 1;
+	banding = Math.max(0, Math.min(1, banding));
 
 	if (this.stops.length >= 2 && banding != 0 && this.tickPositions && this.tickPositions.length > 1) {
 		var ticks = this.tickPositions.map(this.normalizedValue.bind(this));
