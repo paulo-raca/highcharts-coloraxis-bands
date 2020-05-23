@@ -24,7 +24,7 @@
 	/**
 	* Default amount of banding. 0=no banding, 1=completely banded
 	*/
-	ColorAxis.prototype.defaultColorAxisOptions.banding = false;
+	ColorAxis.defaultOptions.banding = false;
 
 	/**
 	* Whenever tick positions change, also update the stops
