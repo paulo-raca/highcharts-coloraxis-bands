@@ -19,6 +19,6 @@ I've found that 40-60% works nicely on contour curve charts, but YMMV.
 
 ## Examples
 
-- [3D Contour curve](https://jsfiddle.net/xt8zmabc/)
-- [TreeMap](https://jsfiddle.net/c9t8eezj/)
-- [Heatmap](https://jsfiddle.net/t3zwt91b/)
+- [3D Contour curve](https://jsfiddle.net/k2fmop7c/)
+- [TreeMap](https://jsfiddle.net/4305doa8/)
+- [Heatmap](https://jsfiddle.net/zwv5y38n/)

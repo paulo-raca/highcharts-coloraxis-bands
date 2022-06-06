@@ -4,7 +4,7 @@
         "LICENSE"
     ],
     "name": "highcharts-coloraxis-bands",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Creates Banding effects between ticks on a ColorAxis.",
     "main": "highcharts-coloraxis-bands.js",
     "repository": {
@@ -18,10 +18,10 @@
         "highcharts-addon"
     ],
 	"demo": [
-		"https://jsfiddle.net/xt8zmabc/",
-		"https://jsfiddle.net/c9t8eezj/",
-		"https://jsfiddle.net/t3zwt91b/"
-	]
+		"https://jsfiddle.net/k2fmop7c/",
+		"https://jsfiddle.net/4305doa8/",
+		"https://jsfiddle.net/zwv5y38n/"
+	],
     "author": "Paulo Costa <eu@paulo.costa.nom.br>",
     "license" : "Unlicense",
     "bugs": {
