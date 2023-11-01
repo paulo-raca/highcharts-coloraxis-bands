@@ -1,34 +1,34 @@
 {
-    "files": [
-        "highcharts-coloraxis-bands.js",
-        "LICENSE"
-    ],
-    "name": "highcharts-coloraxis-bands",
-    "version": "1.0.4",
-    "description": "Creates Banding effects between ticks on a ColorAxis.",
-    "main": "highcharts-coloraxis-bands.js",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/paulo-raca/highcharts-coloraxis-bands.git"
-    },
-    "keywords": [
-        "ColorAxis",
-        "Color band",
-        "highcharts",
-        "highcharts-addon"
-    ],
-	"demo": [
-		"https://jsfiddle.net/k2fmop7c/",
-		"https://jsfiddle.net/4305doa8/",
-		"https://jsfiddle.net/zwv5y38n/"
-	],
-    "author": "Paulo Costa <eu@paulo.costa.nom.br>",
-    "license" : "Unlicense",
-    "bugs": {
-        "url": "https://github.com/paulo-raca/highcharts-coloraxis-bands/issues"
-    },
-    "homepage": "https://github.com/paulo-raca/highcharts-coloraxis-bands#readme",
-    "dependencies": {
-        "highcharts": ">=9.0.0"
-    }
+  "files": [
+    "highcharts-coloraxis-bands.js",
+    "LICENSE"
+  ],
+  "name": "highcharts-coloraxis-bands",
+  "version": "1.0.4",
+  "description": "Creates Banding effects between ticks on a ColorAxis.",
+  "main": "highcharts-coloraxis-bands.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulo-raca/highcharts-coloraxis-bands.git"
+  },
+  "keywords": [
+    "ColorAxis",
+    "Color band",
+    "highcharts",
+    "highcharts-addon"
+  ],
+  "demo": [
+    "https://jsfiddle.net/k2fmop7c/",
+    "https://jsfiddle.net/4305doa8/",
+    "https://jsfiddle.net/zwv5y38n/"
+  ],
+  "author": "Paulo Costa <eu@paulo.costa.nom.br>",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/paulo-raca/highcharts-coloraxis-bands/issues"
+  },
+  "homepage": "https://github.com/paulo-raca/highcharts-coloraxis-bands#readme",
+  "dependencies": {
+    "highcharts": ">=9.0.0"
+  }
 }

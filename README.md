@@ -11,6 +11,7 @@ In these cases, it's better to only use a few discrete colors that can be easily
 ## Configuration
 
 The amount of banding can be configured via `banding` property, where:
+
 - `0` or `false` means no-banding, and is the same as not using this plugin
 - `1` or `true` will result in completely discrete color bands
 - Any number between 0 and 1 will result in continuous bands with smooth transitions in between
