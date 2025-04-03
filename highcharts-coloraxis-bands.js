@@ -18,13 +18,13 @@
 
   var ColorAxis = H.ColorAxis,
     wrap = H.wrap,
-    color = H.color,
-    each = H.each;
+    color = H.color;
 
   /**
    * Default amount of banding. 0=no banding, 1=completely banded
    */
-  ColorAxis.defaultOptions.banding = false;
+  var defaultColorAxisOptions = H.defaultOptions.colorAxis || ColorAxis.defaultOptions;
+  defaultColorAxisOptions.banding = false;
 
   /**
    * Whenever tick positions change, also update the stops
@@ -39,7 +39,7 @@
     // If the stops have changed, update series and the legend.
     if (JSON.stringify(this.stops) !== oldStops) {
       // Update series
-      each(this.series, function (series) {
+      this.series.forEach(function (series) {
         series.isDirtyData = true; // Needed for Axis.update when choropleth colors change
       });
       // Update legend
